@@ -19,6 +19,8 @@ GALLERY_NCOL = 6
 def index(request):
     return render_content(request, LocalAPI, Setting.by_name('home_path'))
 
+def settings(request):
+    return render(request, 'browser/settings.html', {'settings': Setting.all()})
 
 def local(request, path=Setting.by_name('home_path')):
     return render_content(request, LocalAPI, path)

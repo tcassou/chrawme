@@ -26,3 +26,9 @@ class Setting(models.Model):
             return cls.objects.get(name=name)
         except ObjectDoesNotExist:
             return cls.defaults()[name]
+
+    @classmethod
+    def all(cls):
+        stored = cls.objects.all()
+        default = cls.defaults()
+        return { key: stored.filter(name=key).first() or val for key, val in default.iteritems() }
