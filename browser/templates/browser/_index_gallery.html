@@ -1,0 +1,59 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<div id="index_gallery" class="col-xs-10 gallery">
+    <h3>{{ path }}</h3>
+    {% for row in images.array %}
+        <div class="row gallery-row">
+        {% for image in row %}
+            <div class="col-xs-{% widthratio 12 images.ncols 1 %} gallery-col">
+                <div class="thumbnail">
+                    <a href="/browser/{{ api }}/show/{{ image.path }}/image_id/{{ image.id }}">
+                        <img src='data:image/jpg;base64,{{ image.thumbnail }}' alt="Thumb">
+                        <div class="caption">
+                            <p>{{ image.short_name }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<style media="screen" type="text/css">
+    .gallery {
+        min-height: 100%;
+        color: #404040;
+    }
+    .gallery h3 {
+        font-weight: bold;
+        text-align: left;
+    }
+    .gallery-row {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .gallery-col {
+        padding: 2px;
+    }
+    .thumbnail {
+        background-color: #f3f6f6;
+        height: 200px;
+        padding: 0px;
+    }
+    .thumbnail:hover {
+        background-color: #e5ebeb;
+    }
+    .thumbnail img {
+        max-width: 100%;
+        max-height: 85%;
+    }
+    .thumbnail .caption {
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# bash script to launch app, and clean it up on tear down
+
+# Run local webserver in a subprocess
+$(pwd)/.venv/bin/python2 manage.py runserver &
+# Opening browser session
+google-chrome 'http://localhost:8000/browser'
+
+while true; do trap break INT; done
+pkill -9 -f "python2 manage.py runserver"

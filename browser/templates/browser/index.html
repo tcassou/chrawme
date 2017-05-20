@@ -1,0 +1,27 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<div class="container-fluid main-container">
+    <div class="row match-height">
+        {% include 'browser/_index_sidebar.html' %}
+        {% include 'browser/_index_gallery.html' %}
+    </div>
+</div>
+
+<style type="text/css">
+    .main-container {
+        background-color: #edf0f2;
+    }
+    .match-height {
+        min-height: 100%;
+        overflow: hidden;
+    }
+    .match-height [class*="col-"]{
+        margin-bottom: -99999px;
+        padding-bottom: 99999px;
+    }
+</style>

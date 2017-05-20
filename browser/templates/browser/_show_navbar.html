@@ -1,0 +1,107 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<div id='viewer-navbar' class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="container">
+            <!-- Home button -->
+            <div class="navbar-header">
+                <a class="btn btn-link btn-lg" href="/browser/">
+                    <span class="glyphicon glyphicon-home white"></span>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <!-- Center part -->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a id="prev-image-link" class="btn btn-link btn-lg" href="/browser/{{ api }}/show/{{ image.path }}/image_id/{{ prev_id }}">
+                            <span class="glyphicon glyphicon-chevron-left white"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <li class="nav-item">
+                            <p class="navbar-text white">{{ image.id|add:1 }} / {{ n_images }}</p>
+                        </li>
+                    </li>
+
+                    <li>
+                        <a id="next-image-link" class="btn btn-link btn-lg" href="/browser/{{ api }}/show/{{ image.path }}/image_id/{{ next_id }}">
+                            <span class="glyphicon glyphicon-chevron-right white"></span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Right part -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="back-link" class="btn btn-link btn-lg" href="/browser/{{ api }}/{{ image.path }}">
+                            <span class="glyphicon glyphicon-remove white"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style media="screen" type="text/css">
+    #viewer-navbar {
+        opacity: 0;
+        transition: opacity .25s ease-out;
+        -moz-transition: opacity .25s ease-out;
+        -webkit-transition: opacity .25s ease-out;
+        -o-transition: opacity .25s ease-out;
+    }
+    #viewer-navbar:hover {
+        opacity: 1;
+    }
+
+    .navbar-default {
+        background:transparent;
+        border: 0;
+    }
+
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+    }
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+
+    .white {
+        color: #fff;
+        font-weight: bold;
+        opacity: 0.75;
+    }
+    .white:hover {
+        opacity: 1;
+    }
+</style>
+
+<script type="text/javascript">
+    // Intercept some keyboard events to ease navigation
+    document.onkeyup=function(e){
+            var e = e || window.event;  // for IE to cover IEs window object
+        switch(e.which) {
+            // Escape key triggers a click to the "back to browser" button
+            case 27:
+            document.getElementById('back-link').click();
+            break;
+            // Left arrow triggers a click to the "previous image" button
+            case 37:
+            document.getElementById('prev-image-link').click();
+            break;
+            // Righ arrow triggers a click to the "next image" button
+            case 39:
+            document.getElementById('next-image-link').click();
+            break;
+
+            default: return; // exit this handler for other keys
+        }
+        e.preventDefault(); // prevent the default action (scroll / move caret)
+    }
+</script>

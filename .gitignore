@@ -1,0 +1,7 @@
+.venv/
+.ipynb_checkpoints/
+*_thumb.jpg
+*.pyc
+*.ipynb
+*.DS_Store
+db.sqlite3
