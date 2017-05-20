@@ -1,0 +1,41 @@
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% load static %}
+
+<div class="sidebar-body">
+    <div class="row">
+        <h3>Tree</h3>
+    </div>
+    <div class="row sidebar-link">
+        <a class="glyphicon glyphicon-chevron-up" href="/browser/{{ api }}/{{ path }}/../">  ../</a>
+    </div>
+    {% for folder in folders %}
+        <div class="row sidebar-link">
+            <a class="glyphicon glyphicon-folder-open" href="/browser/{{ api }}/{{ folder.value }}/">  {{ folder.label }}</a>
+        </div>
+    {% endfor %}
+</div>
+
+<style type="text/css">
+    .sidebar-link {
+        min-height: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 4px;
+        padding-bottom: 8px;
+    }
+    .sidebar-link a {
+        color: #edf0f2;
+        text-decoration: none;
+    }
+    .sidebar-link:hover a, .sidebar-link:hover {
+        color: #404040;
+        background-color: #edf0f2;
+        text-decoration: none;
+    }
+</style>

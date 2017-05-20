@@ -5,7 +5,7 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-<div id="index_gallery" class="col-xs-10 gallery">
+<div id="gallery" class="gallery">
     <h3>{{ path }}</h3>
     {% for row in images.array %}
         <div class="row gallery-row">
@@ -26,10 +26,6 @@
 </div>
 
 <style media="screen" type="text/css">
-    .gallery {
-        min-height: 100%;
-        color: #404040;
-    }
     .gallery h3 {
         font-weight: bold;
         text-align: left;

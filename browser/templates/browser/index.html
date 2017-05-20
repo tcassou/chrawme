@@ -7,8 +7,13 @@
 
 <div class="container-fluid main-container">
     <div class="row match-height">
-        {% include 'browser/_index_sidebar.html' %}
-        {% include 'browser/_index_gallery.html' %}
+        <div id="index_sidebar" class="col-xs-2 sidebar">
+            {% include 'browser/_sidebar_head.html' %}
+            {% include 'browser/_sidebar_search.html' %}
+        </div>
+        <div id="index_gallery" class="col-xs-10 main">
+            {% include 'browser/_gallery.html' %}
+        </div>
     </div>
 </div>
 
@@ -23,5 +28,21 @@
     .match-height [class*="col-"]{
         margin-bottom: -99999px;
         padding-bottom: 99999px;
+    }
+
+    .sidebar {
+        min-height: 100%;
+        background-color: #404040;
+        color: #edf0f2;
+        word-spacing: -5px;
+    }
+    .sidebar h3 {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .main {
+        min-height: 100%;
+        color: #404040;
     }
 </style>
