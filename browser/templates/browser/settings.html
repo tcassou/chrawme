@@ -12,30 +12,15 @@
         </div>
         <div id="settings_main" class="col-xs-10 main">
             <h3>Settings</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Value
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for key, val in settings.items %}
-                        <tr>
-                            <td>
-                                {{ key }}
-                            </td>
-                            <td>
-                                {{ val }}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <form class="settings">
+                <div class="form-group row">
+                    <label for="home_path" class="col-2 col-form-label">Home directory</label>
+                    <div class="col-10">
+                        <input id="home_path" class="form-control" type="text" value="{{ settings.home_path }}">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </div>
 </div>
@@ -67,5 +52,10 @@
     .main {
         min-height: 100%;
         color: #404040;
+    }
+
+    .settings {
+        width: 90%;
+        margin: 0 auto;
     }
 </style>
