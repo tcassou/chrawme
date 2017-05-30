@@ -15,14 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import include
 from django.conf.urls import url
-from django.contrib import admin
-from django.views.generic.base import RedirectView
+# from django.contrib import admin
 
 from . import views
 
 
 urlpatterns = [
     url(r'^browser/', include('browser.urls'), name='browser'),
-    url(r'^admin/', admin.site.urls, name='admin'),
+    # url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^', views.redirect, {'redirect_to': '/browser/'}, name='redirect'),
 ]
