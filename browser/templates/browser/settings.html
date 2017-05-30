@@ -3,7 +3,7 @@
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
+{% bootstrap_javascript jquery=1 %}
 
 <div class="container-fluid main-container">
     <div class="row match-height">
@@ -12,15 +12,17 @@
         </div>
         <div id="settings_main" class="col-xs-10 main">
             <h3>Settings</h3>
-            <form class="settings">
-                <div class="form-group row">
-                    <label for="home_path" class="col-2 col-form-label">Home directory</label>
-                    <div class="col-10">
-                        <input id="home_path" class="form-control" type="text" value="{{ settings.home_path }}">
+            <div class="settings">
+                <form action="/settings/" method="post">
+                    <div class="form-group row">
+                        <label for="home_path" class="col-xs-2 col-form-label">Home directory</label>
+                        <div class="col-xs-10">
+                            <input id="home_path" class="form-control" type="text" value="{{ settings.home_path }}">
+                        </div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
