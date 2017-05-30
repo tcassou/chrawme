@@ -1,5 +1,6 @@
 # Django
 django==1.10.7
+django-jquery==3.1.0
 django-bootstrap3==7.1.0
 
 # Image processing
