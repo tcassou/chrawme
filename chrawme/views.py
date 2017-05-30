@@ -4,5 +4,5 @@ from __future__ import unicode_literals
 from django.http import HttpResponsePermanentRedirect
 
 
-def redirect(request, path):
-    return HttpResponsePermanentRedirect(path)
+def redirect(request, redirect_to):
+    return HttpResponsePermanentRedirect(redirect_to)
