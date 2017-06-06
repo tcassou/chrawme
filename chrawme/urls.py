@@ -23,5 +23,4 @@ from . import views
 urlpatterns = [
     url(r'^browser/', include('browser.urls'), name='browser'),
     # url(r'^admin/', admin.site.urls, name='admin'),
-    url(r'^', views.redirect, {'redirect_to': '/browser/'}, name='redirect'),
 ]
