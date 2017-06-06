@@ -40,7 +40,7 @@ Follow the steps described in the [Hubic API doc](https://api.hubic.com/) to get
 
 ### Gallery
 Example taken from one of my Github projects, here's what the picture gallery looks like:
-![gallery](https://github.com/thomasCassou/chrawme/blob/master/screenshots/gallery.png)
+![gallery](https://github.com/tcassou/chrawme/blob/master/screenshots/gallery.png)
 
 ### Viewer
-![viewer](https://github.com/thomasCassou/chrawme/blob/master/screenshots/viewer.png)
+![viewer](https://github.com/tcassou/chrawme/blob/master/screenshots/viewer.png)
