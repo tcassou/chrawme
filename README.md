@@ -1,4 +1,4 @@
-# MediaBrowser
+# chrawme
 
 Pictures browser / viewer implemented as a local Django app:
 - Compatible with **raw image** formats
@@ -40,7 +40,7 @@ Follow the steps described in the [Hubic API doc](https://api.hubic.com/) to get
 
 ### Gallery
 Example taken from one of my Github projects, here's what the picture gallery looks like:
-![gallery](https://github.com/thomasCassou/MediaBrowser/blob/master/screenshots/gallery.png)
+![gallery](https://github.com/thomasCassou/chrawme/blob/master/screenshots/gallery.png)
 
 ### Viewer
-![viewer](https://github.com/thomasCassou/MediaBrowser/blob/master/screenshots/viewer.png)
+![viewer](https://github.com/thomasCassou/chrawme/blob/master/screenshots/viewer.png)
