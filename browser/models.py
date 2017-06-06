@@ -25,7 +25,7 @@ class Setting(models.Model):
         try:
             return cls.objects.get(name=name)
         except ObjectDoesNotExist:
-            return cls.defaults()[name]
+            return Setting(name=name, value=cls.defaults()[name])
 
     @classmethod
     def all(cls):

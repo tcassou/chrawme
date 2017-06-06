@@ -13,14 +13,13 @@
         <div id="settings_main" class="col-xs-10 main">
             <h3>Settings</h3>
             <div class="settings">
-                <form action="/settings/" method="post">
-                    <div class="form-group row">
-                        <label for="home_path" class="col-xs-2 col-form-label">Home directory</label>
-                        <div class="col-xs-10">
-                            <input id="home_path" class="form-control" type="text" value="{{ settings.home_path }}">
-                        </div>
+                <form name="settings_form" action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="home_path">Home directory</label>
+                        <input type="text" class="form-control" name="home_path" id="home_path" value="{{ settings.home_path.value }}">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <input type="submit" value="Submit" class="btn btn-primary">
                 </form>
             </div>
         </div>

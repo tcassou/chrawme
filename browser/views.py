@@ -17,10 +17,17 @@ GALLERY_NCOL = 6
 
 
 def index(request):
-    return render_content(request, LocalAPI, Setting.by_name('home_path'))
+    return render_content(request, LocalAPI, Setting.by_name('home_path').value)
 
 def settings(request):
-    _, _, autocomplete_source = LocalAPI.folder_content(Setting.by_name('home_path'))
+    _, _, autocomplete_source = LocalAPI.folder_content(Setting.by_name('home_path').value)
+
+    # Storing data if POST
+    if request.method == 'POST':
+        s = Setting.by_name('home_path')
+        s.value = request.POST['home_path']
+        s.save()
+
     context = {
         'api': LocalAPI.Meta.name,
         'autocomplete_source': json.dumps(autocomplete_source),
@@ -28,8 +35,8 @@ def settings(request):
     }
     return render(request, 'browser/settings.html', context)
 
-def local(request, path=Setting.by_name('home_path')):
-    return render_content(request, LocalAPI, path)
+def local(request, path=None):
+    return render_content(request, LocalAPI, path or Setting.by_name('home_path').value)
 
 
 def hubic(request, path=''):
