@@ -20,7 +20,13 @@ def index(request):
     return render_content(request, LocalAPI, Setting.by_name('home_path'))
 
 def settings(request):
-    return render(request, 'browser/settings.html', {'settings': Setting.all()})
+    _, _, autocomplete_source = LocalAPI.folder_content(Setting.by_name('home_path'))
+    context = {
+        'api': LocalAPI.Meta.name,
+        'autocomplete_source': json.dumps(autocomplete_source),
+        'settings': Setting.all(),
+    }
+    return render(request, 'browser/settings.html', context)
 
 def local(request, path=Setting.by_name('home_path')):
     return render_content(request, LocalAPI, path)
